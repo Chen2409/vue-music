@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>1、MVC与MVVM (Vue)的区别以及特点（框架开发模式)</h2>
+		<p>
+			Mvc 与Mvvm 都是一种框架开发模式。<br>
+			M-V-C指的是:将程序强制分为三部分,模型层(Model)、视图层(View)和控制器(Controller)<br>
+			特点:数据单向流动的<br>
+			M-V-Vm指的是:将程序强制分为三部分，模型层(Model）、视图层(View）和视图模型层(View model)<br>
+			特点:数据双向流动的，View 或Model某一个发生变化，另一个随之更新<br>
+
+		</p>
+		<h2>2、Vue中的生命周期函数有哪些?</h2>
+		<p>
+			Before Create: Vue对象创建之前<br><br>
+			Created: Vue 对象创建之后<br>
+			Before Mount: View 与Model数据绑定成功之前<br>
+			Mounted: View 与 Model数据绑定成功之后<br>
+			Before Update: View 或 Model数据更新之前<br>
+			Updated: View 或 Model数据更新之后<br>
+			Before Unmount: Vue对象销毁（View 与 Model解绑）之前（ Vue3.0>Unmounted: Vue对象销毁（View 与 Model解绑）之后<br>
+		</p>
+		<h2>3、Vue对象的组成部分有哪些?</h2>
+		<p>
+			el:定义了当前Vue对象与哪个dom元素相关联<br>
+			data:定义了Vue 能够使用的数据（数据源）<br>
+			computed:定义了Vue能够使用的计算属性<br>
+			methods:定义了Vue能够使用的自定义函数<br>
+			components:定义了Vue对象能够使用的自定义组件<br>
+		</p>
+		<h2>4、v-for列表渲染，遍历数组、对象、整数?</h2>
+		<p>
+			遍历数组: v-for="(item, index) in arr" :key="item" item数组中每一个数据index每一个数据数字下标arr 要遍历的源数组<br>
+			遍历对象: v-for="(value,key,index) in obj" :key="value" value遍历的属性值key遍历的属性名index每个属性数字下标obj要遍历的源对象<br>
+			遍历整数: v-for="n in num" :key="n" num 要遍历的整数<br>
+			注意: key? 唯一性索引，遍历出来的标签都是唯一不重复的<br>
+		</p>
+		<h2>5、Vue模板编译时闪烁问题?</h2>
+		<p>
+			使用v-cloak指令解决编译模板闪烁问题<br>
+		</p>
+		<h2>6、条件渲染v-if v-show的区别?</h2>
+		<p>
+			v-if 与 v-show 都是根据条件来控制某一个元素的显示与隐藏，<br>
+			v-if 根据条件判断是否创建这个元素，v-show不管条件是否成立，都创建此元素，通过CSS的display: block/none控制显示与隐藏。<br>
+		</p>
+		<h2>7、Vue中如何绑定事件以及事件修饰符的用法（如何调用函数时传参)</h2>
+		<p>
+			Vue 中事件绑定使用:v-on:事件名或者@事件名<br>
+			常用事件:单击事件双击事件鼠标.、移入移出事件、获取焦点、失去焦点事件。。<br>
+			事件修饰符: .stop 阻止冒泡 .prevent阻止默认行为.once绑定一次事件<br>
+			事件对象$event:事件函数的最后一个实参<br>
+		</p>
+		<h2>8、v-model双向绑定的原理</h2>
+		<p>
+			v-model双向绑定是input框的 value值(v-bind: value=“”)与input事件或者change事件（@input/@change）的缩写形式<br>
+		</p>
+		<h2>9、常见的Vue自定义指令(v-xxx)有哪些?它们的作用?</h2>
+		<p>
+			v-for循环渲染<br>
+			v-if v-else v-show条件渲染<br>
+			v-model双向绑定<br>
+			v-on事件绑定<br>
+			v-cloak解决编译模板闪烁<br>
+			v-bind 动态属性绑定<br>
+			v-html解析带有html源代码的变量<br>
+			v-text解析纯文本内容<br>
+		</p>
+		<h2></h2>
+		<p>
+			npm:全球最大的包管理系统，可以帮助我们下载项目所有的所有依赖包（扩展)<br>
+			npm install包名下载某一个依赖包﹑g全局下载--save在本项目下载并写入到配置文件<br>
+			npm uninstall包名卸载某一个依赖包<br>
+			npm update 包名更新某一依赖包<br>
+			npm -v查看当前npm版本号<br>
+			npm init初始化一个npm配置文件<br>
+			npm i根据配置文件package.json下载当前项目需要的所有依赖包<br>
+		</p>
+		<h2>11、什么是动态路由，动态路由传参的几种形式?</h2>
+		<p>
+			动态路由:把某种模式匹配到的所有路由，全都映射到同个组件。(能够接收不同参数的路由，我们称为动态路由)<br>
+			路由传参几种形式：<br>
+			1、 props传参 组件接收props：[“xxx”,”xxx”,”xxx”]<br>
+			值为布尔值true的形式，值为函数的形式<br>
+			2、 query传参 组件接收参数：$route.query.xxx $route:路由信息对象<br>
+			可以使用path也可以使用name 传递参数<br>
+			3、 params传参 组件接收参数$route.params.xxx<br>
+			只能使用命名路由name传递参数<br>
+		</p>
+		<h2>12、vue项目如何配置axios（vue中Ajax）？</h2>
+		<p>
+			1、在项目中下载axios 扩展npm i axios --save;<br>
+			并引入import axios from“axios”;<br>
+			2、在项目发送axios 请求;<br>
+			辅助函数的形式axios.get() ; axios.post(); axios.put()....<br>
+			使用axios实例对象<br>
+
+
+
+		</p>
+		<h2>13、vue项目如何配置路由vue-router?</h2>
+		<p>
+			1、下载vue-router，并在项目中引入 npm i vue-router --save;<br>
+			2、配置路由信息对象数组 routes; const routes=[]<br>
+			3、创建路由管理器对象router;并对外抛出 constrouter =createRouter({})<br>
+			4、在 main.js 将路由管理器对象router 与当前vue对象相关联 user(router)<br>
+			5、设置路由导航router-link 与路由出口 router-view<br>
+		</p>
+		<h2>14、路由配置中route、routes、router它们的区别?</h2>
+		<p>
+			router路由管理器对象 vue-router router = new vueRouter({})<br>
+			routes路由信息对象数组 [{},{},{},{}]<br>
+			route路由信息对象{ path: "/about " , component:About }每一组路由信息<br>
+		</p>
+		<h2>15、组件之间的数据通信</h2>
+		<p>
+			组件之间的数据通信分为两种：父子组件数据通信 与非父子组件之间的数据通信<br>
+			1、 父子组件之间的数据通信：<br>
+			父-->子 通过props传递数据<br>
+			子—>父：通过$emit()触发自定义事件的形式传递数据<br><br>
+			备注：父子组件之间通信也可以使用插槽slot<br>
+			2、 非父子组件之间的数据通信（两种方法）<br>
+			第一种：事件总线Bus的形式实现<br>
+			第二种：状态管理科vuex实现<br>
+
+
+
+		</p>
+		<h2>16、状态（组件之间共享的数据）管理库Vuex？</h2>
+
+		<p>
+			1、如何配置状态管理科vuex？
+			下载vuex并在项目中 引入 npm I vuex –save<br>
+			创建状态管理科对象 store const store == create Store（{}）<br>
+			对外抛出store对象 export default store；<br>
+			在main.js中引入store对象并与vue对象关联<br>
+			2、状态管理库store 对象中包含哪几部分内容？<br>
+			State：定义了组件之间共享的所有数据<br>
+			Getters：定义了store对象中的计算属性（用来过滤state的数据）<br>
+			Mutations：定义了修改state数据的所有同步方法<br>
+			Actions：定义了修改state数据的所以异步方法<br>
+			3、各组件如何访问vuex状态管理库store中的内容?<br>
+			组件中获取/触发它们的方法<br>
+			vuex:状态(组件之间共享的数据)管理库<br>
+
+			扩展：
+			1、什么是单页面应用，优点、缺点?如何实现?<br>
+			用户访问一个网页，并且无需离开此网页即可完成所有功能的应用程序即为单页面应用<br>
+			优点:用户体验好，程序性能高,<br>
+			缺点:不利于浏览器标签收藏，不利于SEO<br>
+			如何实现:使用vue-router路由扩展<br>
+			2、什么是单文件组件，它的组成部分?<br>
+			以.vue结尾的文件是vue 中单页面组件<br>
+			组成部分: template模板、script、style<br>
+			3、Vue 中如何使用插槽?<br>
+				slot标签是vue中插槽;
+				作用:父组件向子组件传递数据，子组件中使用slot表示默认内容，父组件在使用组件时，<br>
+				其标签内容会自动替换子组件 slot标签<br>
+				分为两种:默认插槽 命名插槽<br>
+				 
+		</p>
+		<h2>17、Vue2与vue3的区别（vue3的新特性）</h2>
+		<p>
+			区别列表 Vue2的用法 Vue3的用法<br>
+			1、创建Vue实例对象时 New Vue（{el:”#app”}） Vue.createApp(vm).mount("#app");<br>
+			2、过滤器filter 可以定义过滤器 已废除<br>
+			3、Vue中快速搭建Vue项目的脚手架<br>
+			Vue-cli @2.9.6<br>
+			创建简易模板Vue项目：<br>
+			Vue init webpack-simple 项目名称<br>
+			创建完整模板Vue项目：<br>
+			Vue init webpack 项目名称<br>
+			项目运行测试：<br>
+			Npm run dev
+			项目打包：<br>
+			Npm run build 脚手架1：Vue-cli<br>
+			命令行创建Vue项目：Vue create 项目名称<br>
+			测试运行项目：npm run serve<br>
+			UI页面创建Vue项目：Vue ui
+			脚手架2：vite<br>
+			创建Vue项目：npm init vite-app 项目名称；<br>
+			下载依赖：npm i<br>
+			项目运行测试： npm run dev<br>
+			项目打包 ：npm run build<br>
+			4、单文件组件的template模板 有且只有一个最外层的根元素div来包裹 此要求废除<br>
+			5、Vue-router与vuex版本更新（4.xx.xx版本） 创建vue-router对象<br>
+			new Vue Router({})<br>
+			创建store状态管理库对象<br>
+			new Vuex.Store({}) 创建vue-router对象create Router({})<br>
+			创建store状态管理库对象create Store(})<br>
+			6、vue3新增的一系列组合API vue2中约定了我们某一个数据必须放在某一个特定的位置，这反倒一定程度上强制对我们的代码进行分割 setup（）{}<br>
+			是一个组件选项，将某个数据的相关内容整合成一部分，数据再多也会围绕大而不乱的特点开发。<br>
+			Vue3组合api可以在组件选项中使用，并且相关内容需要rerurn，才能使用<br>
+			ref(操作一个值（数字，字符串）包装成响应式数据<br>
+			reactive()操作一个对象（数组，对象，数组对象）包装成响应式数据<br>
+			toRefs()直接在html模板中吧对象的属性名称当变量使用，不需要时﹒访问computed ( setup格式中的计算属性和vue相同<br>
+			watch()自动监听某一个数据的变化，如果数据发生改变，回调函数会被触发newNum, oldNum newNum新值oldNum旧值<br>
+		</p>
+		<h2>18、使用脚手架创建不同版本的Vue项目？</h2>
+		<p>
+			创建vue2项目的脚手架？（Vue-cli 2.9.6）<br>
+			创建简易模板vue项目:vue init webpack-simple 项目名称<br>
+			创建完整模板vue 项目:vue init webpack项目名称<br>
+			项目运行测试: npm run dev<br>
+			项目打包:npm run build<br>
+			如何创建vue3项目,几种方式?(Vue-cli 5.0.8 )<br>
+			1、Vue-cli脚手架﹑特点:依赖webpack服务器进行项目开发，文件越多，依赖越复杂，冗余代码多，性能低<br>
+			创建vue项目命令: vue create objname;/ vue ui创建项目<br>
+			cd objname;切换到项目目录<br>
+			npm run serve;运行项目<br>
+			npm run build;打包项目<br>
+			2、Vite（新出的）:特点:不需要捆绑服务器，依赖浏览器浏览器对ES6 Modules 的原生支持，即时的热刷新功能，以及按需编译，性能高<br>
+			创建vue 项目命令: npm init vite-app objname; 创建项目<br>
+			cd objname; 切换到项目目录<br>
+			npm run dev; 运行项目<br>
+			npm run build; 打包项目<br>
+		</p>
+
+		<style type="text/css">
+			p {
+				font-size: 24px;
+				color: #000000;
+				font-weight: bold;
+				font-family: 楷体;
+				text-align: left;
+				
+			}
+
+			h2 {
+				text-align:left;
+			}
+		</style>
+	</body>
+</html>

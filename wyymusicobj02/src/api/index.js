@@ -15,11 +15,23 @@ export function getMusicList(id){
 return axios.get(`${baseUrl}/playlist/detail?id=${id}`);
 
 }
+export function getLyirc(id){
+return axios.get(`${baseUrl}/lyric/?id=${id}`);
+
+}
+export function searchMusic(keywords){
+return axios.get(`${baseUrl}/search?keywords=${keywords}`);
+
+}
+// import aaa from "index.js"
+// import {aaa} from "index.js"
 //对外抛出
 
 export default {
 	getBanner,
 	getLimit,
-	getMusicList
+	getMusicList,
+	getLyirc,
+	searchMusic
 	
 };

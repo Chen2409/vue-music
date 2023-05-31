@@ -10,7 +10,7 @@
 <script>
 import { useRoute } from 'vue-router';
 import { onMounted, reactive } from 'vue';
-import { getMusicList } from '@/api/index.js';
+import { getMusicList } from '../api/index.js';
 import ListviewTop from '@/components/ListViewTop.vue';
 import PlayList from '@/components/PlayList.vue';
 import store from "@/store/index.js"
